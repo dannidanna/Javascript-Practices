@@ -1,15 +1,25 @@
-class Coche{
+interface CocheBase{
+    getColor():string;
+    getMarca():string;
+}
+
+class Coche implements CocheBase{
     private color:string;
     private marca:string;
     private velocidad:number;
 
-    public constructor(){
-        this.color = "";
+    public constructor(color:string=null){
+        this.color = color;
         this.marca = "";
         this.velocidad = 0;
+        if(color == null){
+            this.color = "WHITE GENERIC";
+        }else{
+            this.color = color;
+        }
     }
 
-    public getColor(){
+    public getColor():string{
         return this.color;
     }
 
@@ -17,7 +27,7 @@ class Coche{
         this.color = color;
     }
 
-    public getMarca(){
+    public getMarca():string{
         return this.marca;
     }
 
@@ -43,8 +53,8 @@ class Coche{
     
 }
 //CREACION DE OBJETOS A PARTIR DE LA CLASE COCHE
-var coche = new Coche();
-coche.setColor("VERDE PACAY");
+var coche = new Coche("WHITE");
+//coche.setColor("VERDE PACAY");
 coche.acelerar();
 coche.acelerar();
 coche.acelerar();

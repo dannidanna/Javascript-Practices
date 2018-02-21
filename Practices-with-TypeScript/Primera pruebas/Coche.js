@@ -1,8 +1,15 @@
 var Coche = /** @class */ (function () {
-    function Coche() {
-        this.color = "";
+    function Coche(color) {
+        if (color === void 0) { color = null; }
+        this.color = color;
         this.marca = "";
         this.velocidad = 0;
+        if (color == null) {
+            this.color = "WHITE GENERIC";
+        }
+        else {
+            this.color = color;
+        }
     }
     Coche.prototype.getColor = function () {
         return this.color;
@@ -31,8 +38,8 @@ var Coche = /** @class */ (function () {
     return Coche;
 }());
 //CREACION DE OBJETOS A PARTIR DE LA CLASE COCHE
-var coche = new Coche();
-coche.setColor("VERDE PACAY");
+var coche = new Coche("WHITE");
+//coche.setColor("VERDE PACAY");
 coche.acelerar();
 coche.acelerar();
 coche.acelerar();
